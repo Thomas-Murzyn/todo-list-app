@@ -22,9 +22,12 @@ const Task = ({ index, task, tasks, setTasks }) => {
         onClick={async () => {
           const newTask = [...tasks];
           axios
-            .post("http://localhost:4000/deleteTask", {
-              task: task,
-            })
+            .post(
+              "https://git.heroku.com/todo-list-backend-by-thomas.git/deleteTask",
+              {
+                task: task,
+              }
+            )
             .then((response) => {
               console.log(response.data);
             })
