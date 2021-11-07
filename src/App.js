@@ -1,4 +1,5 @@
 import "./App.css";
+import axios from "axios";
 
 import Header from "./components/Header";
 import Task from "./components/Task";
@@ -13,8 +14,18 @@ function App() {
   const [task, setTask] = useState("");
   const newTask = [...tasks];
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    await axios
+      .post("http://localhost:4000/newTask", {
+        task: task,
+      })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
     newTask.push(task);
     setTasks(newTask);
     setTask("");

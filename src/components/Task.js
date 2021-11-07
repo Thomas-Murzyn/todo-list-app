@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
+import axios from "axios";
 
 const Task = ({ index, task, tasks, setTasks }) => {
   const [isChecked, setChecked] = useState(false);
@@ -18,8 +19,18 @@ const Task = ({ index, task, tasks, setTasks }) => {
         {task}
       </p>
       <FontAwesomeIcon
-        onClick={() => {
+        onClick={async () => {
           const newTask = [...tasks];
+          axios
+            .post("http://localhost:4000/deleteTask", {
+              task: task,
+            })
+            .then((response) => {
+              console.log(response.data);
+            })
+            .catch((error) => {
+              console.log(error);
+            });
           newTask.splice(index, 1);
           setTasks(newTask);
         }}
