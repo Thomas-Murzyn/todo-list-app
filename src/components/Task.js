@@ -23,7 +23,7 @@ const Task = ({ index, task, tasks, setTasks }) => {
           const newTask = [...tasks];
           axios
             .post(
-              "https://git.heroku.com/todo-list-backend-by-thomas.git/deleteTask",
+              "https://todo-list-backend-by-thomas.herokuapp.com/deleteTask",
               {
                 task: task,
               }

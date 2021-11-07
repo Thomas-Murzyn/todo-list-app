@@ -17,7 +17,7 @@ function App() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     await axios
-      .post("https://git.heroku.com/todo-list-backend-by-thomas.git/newTask", {
+      .post("https://todo-list-backend-by-thomas.herokuapp.com/newTask", {
         task: task,
       })
       .then((response) => {
