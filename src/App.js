@@ -29,7 +29,7 @@ function App() {
             return (
               <Task
                 index={index}
-                key={index}
+                key={Math.round(Math.random() * 10000000)}
                 tasks={tasks}
                 setTasks={setTasks}
                 task={task}
